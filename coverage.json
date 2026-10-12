@@ -1,0 +1,51 @@
+{
+  "claim_states": {},
+  "conflicting_claims": 0,
+  "counts": {
+    "axles": 0,
+    "claims": 0,
+    "packages": 0,
+    "platforms": 0,
+    "reviews": 0,
+    "sources": 0,
+    "variants": 0
+  },
+  "field_completeness": {
+    "offset_mm": {
+      "known": 0,
+      "percent": null,
+      "total": 0
+    },
+    "tyre_aspect_ratio_percent": {
+      "known": 0,
+      "percent": null,
+      "total": 0
+    },
+    "tyre_rim_diameter_in": {
+      "known": 0,
+      "percent": null,
+      "total": 0
+    },
+    "tyre_section_width_mm": {
+      "known": 0,
+      "percent": null,
+      "total": 0
+    },
+    "wheel_diameter_in": {
+      "known": 0,
+      "percent": null,
+      "total": 0
+    },
+    "wheel_width_in": {
+      "known": 0,
+      "percent": null,
+      "total": 0
+    }
+  },
+  "manufacturer_count": 0,
+  "manufacturers": [],
+  "markets": [],
+  "model_year_range": null,
+  "reference_year_range": null,
+  "technical_review_status": {}
+}

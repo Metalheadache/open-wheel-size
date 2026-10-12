@@ -1,0 +1,609 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "axles": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actual_section_width_mm": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "axle": {
+            "enum": [
+              "front",
+              "rear"
+            ]
+          },
+          "evidence_grade": {
+            "type": "string"
+          },
+          "load_index": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "measuring_rim_width_in": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "offset_mm": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "package_key": {
+            "type": "string"
+          },
+          "run_flat": {
+            "enum": [
+              true,
+              false,
+              null
+            ]
+          },
+          "source_key": {
+            "type": "string"
+          },
+          "source_locator": {
+            "type": "string"
+          },
+          "spacer_mm": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "speed_rating": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tyre_aspect_ratio_percent": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "tyre_brand": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tyre_model": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tyre_rim_diameter_in": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "tyre_section_width_mm": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "wheel_diameter_in": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "wheel_part_number": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "wheel_width_in": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "xl_reinforced": {
+            "enum": [
+              true,
+              false,
+              null
+            ]
+          }
+        },
+        "required": [
+          "package_key",
+          "source_key",
+          "source_locator",
+          "evidence_grade",
+          "axle",
+          "wheel_diameter_in",
+          "wheel_width_in",
+          "offset_mm",
+          "tyre_section_width_mm",
+          "tyre_aspect_ratio_percent",
+          "tyre_rim_diameter_in",
+          "actual_section_width_mm",
+          "measuring_rim_width_in",
+          "spacer_mm",
+          "wheel_part_number",
+          "load_index",
+          "speed_rating",
+          "tyre_brand",
+          "tyre_model",
+          "run_flat",
+          "xl_reinforced"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "claims": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "canonical_unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "claim_key": {
+            "type": "string"
+          },
+          "entity_key": {
+            "type": "string"
+          },
+          "entity_type": {
+            "type": "string"
+          },
+          "evidence_grade": {
+            "type": "string"
+          },
+          "field_path": {
+            "type": "string"
+          },
+          "source_key": {
+            "type": "string"
+          },
+          "source_locator": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "known",
+              "unknown",
+              "notApplicable"
+            ]
+          },
+          "unknown_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          "value_type": {
+            "enum": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "required": [
+          "claim_key",
+          "entity_type",
+          "entity_key",
+          "field_path",
+          "source_key",
+          "source_locator",
+          "evidence_grade",
+          "state",
+          "value",
+          "value_type",
+          "unknown_reason",
+          "canonical_unit"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "packages": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "configuration_reference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "market": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "model_year_end": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "model_year_start": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "option_package_code": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "package_key": {
+            "type": "string"
+          },
+          "package_name": {
+            "type": "string"
+          },
+          "package_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reference_year": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "region": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_key": {
+            "type": "string"
+          },
+          "source_locator": {
+            "type": "string"
+          },
+          "variant_key": {
+            "type": "string"
+          },
+          "wheel_style_code": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "year_basis": {
+            "enum": [
+              "manufacturerModelYear",
+              "datedConfiguration",
+              "undatedConfiguration"
+            ]
+          }
+        },
+        "required": [
+          "package_key",
+          "variant_key",
+          "package_name",
+          "source_key",
+          "source_locator",
+          "model_year_start",
+          "model_year_end",
+          "reference_year",
+          "market",
+          "region",
+          "configuration_reference",
+          "year_basis",
+          "package_type",
+          "option_package_code",
+          "wheel_style_code"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "platforms": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "chassis_generation": {
+            "type": "string"
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "model_family": {
+            "type": "string"
+          },
+          "platform_key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "platform_key",
+          "manufacturer",
+          "model_family",
+          "chassis_generation"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "reviews": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "application_promotion_status": {
+            "enum": [
+              "notAssessed"
+            ]
+          },
+          "entity_key": {
+            "type": "string"
+          },
+          "entity_type": {
+            "type": "string"
+          },
+          "garage_support": {
+            "enum": [
+              "notAssessed"
+            ]
+          },
+          "public_release_basis": {
+            "type": "string"
+          },
+          "public_release_status": {
+            "enum": [
+              "eligible"
+            ]
+          },
+          "technical_review_status": {
+            "enum": [
+              "unreviewed",
+              "inReview",
+              "accepted",
+              "rejected",
+              "blocked"
+            ]
+          }
+        },
+        "required": [
+          "entity_type",
+          "entity_key",
+          "technical_review_status",
+          "public_release_status",
+          "public_release_basis",
+          "application_promotion_status",
+          "garage_support"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attribution": {
+            "type": "string"
+          },
+          "content_hash": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "contribution_license": {
+            "type": "string"
+          },
+          "public_release_basis": {
+            "type": "string"
+          },
+          "publication_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "reference_url": {
+            "type": "string"
+          },
+          "retrieval_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_key": {
+            "type": "string"
+          },
+          "source_version": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_key",
+          "title",
+          "publisher",
+          "reference_url",
+          "source_version",
+          "attribution",
+          "public_release_basis",
+          "contribution_license",
+          "publication_date",
+          "retrieval_date",
+          "content_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "variants": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "aliases_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "aliases_zh": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "body_style": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "configuration_reference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "drive_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "engine_code": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "market": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "model_year_end": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "model_year_start": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "platform_key": {
+            "type": "string"
+          },
+          "reference_year": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "region": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transmission_name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transmission_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "trim": {
+            "type": "string"
+          },
+          "variant_key": {
+            "type": "string"
+          },
+          "year_basis": {
+            "enum": [
+              "manufacturerModelYear",
+              "datedConfiguration",
+              "undatedConfiguration"
+            ]
+          }
+        },
+        "required": [
+          "variant_key",
+          "platform_key",
+          "trim",
+          "model_year_start",
+          "model_year_end",
+          "reference_year",
+          "market",
+          "region",
+          "configuration_reference",
+          "year_basis",
+          "body_style",
+          "drive_type",
+          "transmission_type",
+          "transmission_name",
+          "engine_code",
+          "aliases_en",
+          "aliases_zh"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "platforms",
+    "variants",
+    "packages",
+    "axles",
+    "sources",
+    "claims",
+    "reviews"
+  ],
+  "title": "open-wheel-size portable projection 1.0",
+  "type": "object"
+}

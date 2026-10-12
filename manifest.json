@@ -1,0 +1,79 @@
+{
+  "application_promotion": "notAssessed",
+  "catalog_sha256": "5b0d855ebb8a91a0a4726c4dba0fbd1d3041fdedd8e7b255cc12248df2a2e333",
+  "code_license": "MIT",
+  "data_release_status": "blocked",
+  "date": "2026-10-12",
+  "eligibility_basis": "No documented scoped public fact-release assessment; all master records retained privately.",
+  "eligible_contribution_license": "CC-BY-4.0",
+  "excluded_master_counts": {
+    "axle": 23542,
+    "blank": 14,
+    "claim": 732391,
+    "correction": 8,
+    "effective_fact": 1278,
+    "header": 7,
+    "json_container": 10,
+    "package": 11771,
+    "planning_history": 18194,
+    "platform": 621,
+    "provenance": 19533,
+    "release_history": 58,
+    "review": 21087,
+    "review_document": 2,
+    "source": 2390,
+    "variant": 6349
+  },
+  "full_intended_dataset_released": false,
+  "garage_support": "notAssessed",
+  "included_stable_ids": [],
+  "project": "open-wheel-size",
+  "public_schema_version": "1.0",
+  "release_kind": "tooling-only",
+  "release_version": "0.1.0",
+  "released_counts": {
+    "axles": 0,
+    "claims": 0,
+    "packages": 0,
+    "platforms": 0,
+    "reviews": 0,
+    "sources": 0,
+    "variants": 0
+  },
+  "schema_sha256": "8ad2dbfd50206ff1d4c6d85230459ea80178372e2307fa52c5b833b599430779",
+  "source_batch_id": "47fc2ad9-1250-5c4c-8e27-ad7eff5d357b",
+  "source_input_fingerprint_sha256": "bf70333f00294d6e94d8b9d3d684e888191bc2ef75db145af7ff338e87116268",
+  "source_inputs": {
+    "backlog_workbook": {
+      "bytes": 3116923,
+      "sha256": "010c8ab2752572c87b08d651819b5cf74f753d656087cbab882c82e05d593e80"
+    },
+    "catalog_workbook": {
+      "bytes": 98919172,
+      "sha256": "68ac6be0fa582b53f2c362e737df3a175c11ed12d124f2135a766817e2c3b92f"
+    },
+    "stage2_export_provenance.json": {
+      "bytes": 60720802,
+      "sha256": "a5c7225af208c6856559fede34efa5da10a6ea01377280b89bf679fe59f5650d"
+    },
+    "v1_conflict_pass.json": {
+      "bytes": 15256,
+      "sha256": "9a4ca730655b5ab77183f8500a418ac567579ac5ac2999d10b0f4522df3b1544"
+    },
+    "v1_corrections.jsonl": {
+      "bytes": 10132,
+      "sha256": "da60d2aaf29f07374b652f9668dcc0f1dd07e77736883fe2452887b079edccef"
+    },
+    "v1_effective_facts.jsonl": {
+      "bytes": 3475261,
+      "sha256": "451240d4dc2388405afbdd2036ade5a8957d2c200a4cda0ecb110ae2d2e95161"
+    },
+    "v1_saved_source_cleanup.json": {
+      "bytes": 80562,
+      "sha256": "a372295c2840029579fa979ffa6fe517bdbcd62167ec704f4ec942c120cb56a3"
+    }
+  },
+  "source_intake_schema_version": "1.2",
+  "source_version": "research_catalog_v1_after_saved_source_cleanup",
+  "technical_review": "No public records; no approval inferred"
+}
