@@ -30,7 +30,7 @@
   "project": "open-wheel-size",
   "public_schema_version": "1.0",
   "release_kind": "tooling-only",
-  "release_version": "0.1.0",
+  "release_version": "0.1.1",
   "released_counts": {
     "axles": 0,
     "claims": 0,

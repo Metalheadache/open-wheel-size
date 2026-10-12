@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Cite the exact tooling release; no vehicle dataset is included yet."
 title: "open-wheel-size: catalog tooling and schema"
 type: software
-version: 0.1.0
+version: 0.1.1
 date-released: 2026-10-12
 authors:
   - name: open-wheel-size contributors

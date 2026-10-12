@@ -1,6 +1,6 @@
 # Releasing
 
-This package is prepared as `v0.1.0`, a tooling-only release. Reserve `v1.0.0` for
+This package is prepared as `v0.1.1`, a tooling-only release. Reserve `v1.0.0` for
 an appropriate future data release. Schema versions are independent.
 
 1. Reconcile the canonical master and record scoped public-release eligibility.
@@ -25,9 +25,9 @@ git status --short
 git diff --cached
 git log --oneline --all
 # Only after confirming this version/tag is unused and the commit is reviewed:
-git tag v0.1.0
-git push origin main v0.1.0
-gh release create v0.1.0 dist/open-wheel-size-0.1.0.zip dist/SHA256SUMS --title '0.1.0 — tooling only; data release blocked' --notes-file RELEASE_NOTES.md
+git tag v0.1.1
+git push origin main v0.1.1
+gh release create v0.1.1 dist/open-wheel-size-0.1.1.zip dist/SHA256SUMS --title '0.1.1 — tooling only; data release blocked' --notes-file RELEASE_NOTES.md
 ```
 
 For the next release, update the version in the manifest, changelog and citation,

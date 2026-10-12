@@ -1,6 +1,6 @@
 # Data dictionary
 
-Public projection schema 1.0; dataset package 0.1.0; source intake schema 1.2.
+Public projection schema 1.0; dataset package 0.1.1; source intake schema 1.2.
 All properties are required; null marks missing optional values. No arbitrary extra fields.
 CSV cells use JSON scalar encoding: `null`, `true`, `false`, numbers, or quoted strings.
 Parse a CSV cell with `json.loads` to recover the exact scalar.

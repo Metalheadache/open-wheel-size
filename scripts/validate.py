@@ -1,5 +1,5 @@
 """Offline closed-schema and release checks, using only Python's standard library."""
-import hashlib,json,math,re,sys
+import csv,hashlib,io,json,math,re,sys
 from collections import Counter
 from pathlib import Path
 from urllib.parse import urlsplit,parse_qsl
@@ -111,11 +111,28 @@ def validate_tree(root=ROOT):
   if any(x in {'.git','dist','__pycache__'} for x in rel.parts):continue
   require(not p.is_symlink(),'Symlink in public tree')
   if p.is_file():actual.append(rel.as_posix())
- require(set(actual)==set(files),'Public file allowlist mismatch')
+ generated={'CHECKSUMS.sha256'}|{'csv/'+t+'.csv' for t in TABLE_KEYS}
+ archive=bool(set(actual)-set(files))
+ require(set(actual)==set(files)|(generated if archive else set()),'Public file allowlist mismatch')
+ if archive:
+  expected=set(files)|{'csv/'+t+'.csv' for t in TABLE_KEYS}
+  checks={}
+  for line in (root/'CHECKSUMS.sha256').read_text().splitlines():
+   digest,name=line.split('  ',1)
+   require(name not in checks,'Duplicate archive checksum');checks[name]=digest
+  require(set(checks)==expected,'Archive checksum allowlist mismatch')
+  for name,digest in checks.items():require(sha(root/name)==digest,'Archive checksum mismatch: '+name)
  for f in files:
   require(not f.startswith('/') and '..' not in Path(f).parts,'Unsafe public path')
   scan_text((root/f).read_text(encoding='utf-8'),f)
  d=load(root/'data/catalog.json');s=load(root/'schemas/catalog.schema.json');validate_data(d,s)
+ if archive:
+  for table in TABLE_KEYS:
+   with (root/'csv'/ (table+'.csv')).open(encoding='utf-8',newline='') as f:
+    reader=csv.DictReader(f)
+    require(reader.fieldnames==sorted(s['properties'][table]['items']['properties']),'CSV header mismatch')
+    rows=[{k:json.loads(value) for k,value in row.items()} for row in reader]
+   require(rows==d[table],'CSV/JSON disagreement')
  require((root/'data/catalog.json').read_text()==canonical(d),'Noncanonical JSON')
  c=coverage(d);require(load(root/'coverage.json')==c,'Stale coverage')
  require((root/'COVERAGE.md').read_text()==coverage_md(c),'Stale coverage documentation')

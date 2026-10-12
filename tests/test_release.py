@@ -66,8 +66,14 @@ class ValidationTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as a,tempfile.TemporaryDirectory() as b:
    x,h=build(v.ROOT,Path(a));y,j=build(v.ROOT,Path(b));self.assertEqual(x.read_bytes(),y.read_bytes());self.assertEqual(h,j)
    with zipfile.ZipFile(x) as z:
-    prefix='open-wheel-size-0.1.0/'
+    prefix='open-wheel-size-'+v.load(v.ROOT/'manifest.json')['release_version']+'/'
     for line in z.read(prefix+'CHECKSUMS.sha256').decode().splitlines():
      digest,name=line.split('  ',1);self.assertEqual(hashlib.sha256(z.read(prefix+name)).hexdigest(),digest)
     for table in v.TABLE_KEYS:self.assertEqual(len(list(csv.DictReader(io.StringIO(z.read(prefix+'csv/'+table+'.csv').decode())))),0)
+    with tempfile.TemporaryDirectory() as extracted:
+     z.extractall(extracted);root=Path(extracted)/prefix
+     self.assertEqual(v.validate_tree(root)['counts'],v.coverage(v.load(v.ROOT/'data/catalog.json'))['counts'])
+     rebuilt,h2=build(root,Path(extracted)/'rebuilt');self.assertEqual(x.read_bytes(),rebuilt.read_bytes())
+     (root/'csv/axles.csv').write_text('tampered\n')
+     with self.assertRaisesRegex(ValueError,'checksum'):v.validate_tree(root)
 if __name__=='__main__':unittest.main()
