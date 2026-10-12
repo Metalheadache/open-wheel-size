@@ -1,35 +1,44 @@
 # Releasing
 
-This package is prepared as `v0.1.1`, a tooling-only release. Reserve `v1.0.0` for
-an appropriate future data release. Schema versions are independent.
+The public dataset version is 1.0.0 and the portable schema is 2.0. They are separate
+from the source intake schema version. Never overwrite tags or existing assets.
 
-1. Reconcile the canonical master and record scoped public-release eligibility.
-   Generate a new allowlisted projection; never copy private history/attachments.
-2. Regenerate coverage, source manifest and manifest hashes, preserving source
-   identity. Inspect all staged files and every commit to be pushed.
-3. Run the offline commands below twice and compare archive/checksum bytes.
-4. Verify the authenticated owner and existing repository, refs, tags and releases.
-   Never force-push or replace an existing tag/asset. Upload only allowlisted files.
-5. Tag the reviewed commit, publish the versioned archive and checksums, then use
-   a clean unauthenticated download to rerun validation and compare all checksums.
-   Inspect CI logs and release assets. Report actual status, not intent.
+Privately reconcile the canonical ledger, preserve source input hashes and update
+the scoped publication authorization. Generate into a new staging directory:
+
+```sh
+python3 scripts/project.py --ledger PATH_TO_RECONCILED_LEDGER --output STAGING_DIRECTORY --private-report PRIVATE_AUDIT_JSON
+```
+
+The projector is the single schema allowlist. It never edits the master and never
+promotes rights flags. Audit redactions and excluded fields privately; never copy
+its private report, original ledger or source attachments into public Git. Refresh
+manifest, coverage and source metadata from the projected rows, inspect the entire
+staged allowlist and all history being pushed, then run:
 
 ```sh
 python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
 python3 scripts/release.py --output dist
-# Optional authenticated GitHub CLI, after configuring it yourself:
-gh api user --jq .login
-gh repo view Metalheadache/open-wheel-size
-git status --short
-git diff --cached
-git log --oneline --all
-# Only after confirming this version/tag is unused and the commit is reviewed:
-git tag v0.1.1
-git push origin main v0.1.1
-gh release create v0.1.1 dist/open-wheel-size-0.1.1.zip dist/SHA256SUMS --title '0.1.1 — tooling only; data release blocked' --notes-file RELEASE_NOTES.md
 ```
 
-For the next release, update the version in the manifest, changelog and citation,
-then use that unused tag and generated asset name. If the data gate is still
-blocked, retain the blocker and zero counts; do not imply a complete data release.
+Choose an unused release version, update manifest/changelog/citation, and verify the
+authenticated GitHub owner and existing repository. Example after configuring CLI
+authentication locally and inspecting the proposed commit:
+
+```sh
+gh api user --jq .login
+gh repo view Metalheadache/open-wheel-size
+git diff --cached
+git log --oneline --all
+# Substitute the NEW unused version, never an existing tag:
+git tag NEW_TAG
+git push origin main NEW_TAG
+gh release create NEW_TAG dist/open-wheel-size-NEW_VERSION.zip dist/SHA256SUMS --notes-file RELEASE_NOTES.md
+```
+
+Use a clean unauthenticated clone and download of the published archive. Run the
+validator/tests and rebuild the archive; compare SHA256SUMS and internal file hashes.
+Inspect GitHub source ZIP/tar archives, public history, CI logs and asset lists.
+Retain unresolved rights labels and explicitly avoid claims of legal clearance.
+The repository workflow uses no publishing credentials or privileged PR execution.

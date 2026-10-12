@@ -1,27 +1,32 @@
-# Licensing scope and notices
+# Licensing scope and unresolved rights
 
 Copyright (c) 2026 open-wheel-size contributors.
 
-LICENSE-CODE is the authentic MIT text (SPDX MIT), covering owner-controlled
-original scripts, schemas, tests and documentation in this repository.
-LICENSE-DATA is the authentic Creative Commons Attribution 4.0 International
-legal code (CC-BY-4.0), covering only the project's eligible original data and
-compilation contributions explicitly included in `data/`. Currently there are
-no vehicle/source/claim records. The licence file does not clear the private master.
+LICENSE-CODE contains the authentic MIT text for original scripts, schemas, tests
+and documentation. LICENSE-DATA contains the authentic CC BY 4.0 legal text for
+owner-controlled eligible data/compilation contributions. Attribute those
+contributions to “open-wheel-size contributors”, identify the release version,
+link to this repository and CC BY 4.0, and indicate modifications.
 
-Attribute eligible contributions to “open-wheel-size contributors”, identify the
-release version, link to this repository and CC BY 4.0, and indicate modifications.
-Retain source-level attribution and any compatible notices in later data releases.
-No ownership is claimed over manufacturers' documents, trademarks or all underlying
-facts. No source PDFs, HTML captures, screenshots or third-party text are included.
-Citation is not permission. A disclaimer cannot transfer rights.
+**The data is published under the owner's explicit instruction to supersede the
+prior unresolved-rights release gate for structured facts. This is publication
+authorization, not legal clearance.** Original source/review rights labels and
+scope descriptions remain unchanged in `source_rights` and `reviews`.
+No unknown or notPermitted flag has been promoted to permitted.
 
-Source-material reproduction restrictions and rights in independently recorded
-facts must be assessed separately. The current block records missing evidence,
-not a legal determination that facts cannot be shared. Existing private source
-flags and reviewer states were not changed. No pre-existing project/contributor
-licence grant clearing the catalog was found in the standalone project.
+The CC BY grant extends only to rights the contributors can grant. It does not
+relicense third-party documents, trademarks or all underlying facts. Source-specific
+attribution and permissions remain separate. Restrictions on copying a source PDF
+do not alone establish the status of independently recorded facts. Citation and a
+disclaimer do not create permission. Research is a purpose, not a blanket exemption
+or “non-commercial only” restriction. No assertion of unrestricted third-party
+clearance is made by including records on GitHub.
 
-Licence text origins:
-- MIT: https://github.com/spdx/license-list-data/blob/main/text/MIT.txt
-- CC BY 4.0: https://creativecommons.org/licenses/by/4.0/legalcode.txt
+Source documents, captures, copied raw passages, private notes, personal data and
+credentials are excluded. Source citations, publisher names, original rights labels,
+required attribution, technical values and unknown/conflict states remain.
+Report source or attribution concerns through the repository's issue template.
+
+Licence texts: [MIT](https://github.com/spdx/license-list-data/blob/main/text/MIT.txt),
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt)
+([SPDX text copy](https://github.com/spdx/license-list-data/blob/main/text/CC-BY-4.0.txt)).

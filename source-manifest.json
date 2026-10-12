@@ -1,1 +1,26 @@
-[]
+{
+  "source_rights": {
+    "files": [
+      {
+        "bytes": 197499,
+        "jsonl_sha256": "263e0728d65311dbe63cbc01044604b69b57c7728c5c7027ef45c412da0216d5",
+        "path": "data/source_rights-001.jsonl.gz",
+        "rows": 2390,
+        "sha256": "df18f80a809c404f9a627456859cf6f29c0439e96db5646befe979015e302cee"
+      }
+    ],
+    "rows": 2390
+  },
+  "sources": {
+    "files": [
+      {
+        "bytes": 366372,
+        "jsonl_sha256": "987123d802aef496818c8fa251b70cf2d364f44e6b9aeac1eb9a12f7fcc8ae2d",
+        "path": "data/sources-001.jsonl.gz",
+        "rows": 2390,
+        "sha256": "f276e892c990cbf89f740b5bc4076a676a3cfc987ecde474c4dea33eab52e768"
+      }
+    ],
+    "rows": 2390
+  }
+}

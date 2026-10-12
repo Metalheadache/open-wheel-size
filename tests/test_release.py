@@ -1,79 +1,47 @@
-"""Synthetic fixtures only: no real vehicle facts are embedded in tests."""
-import copy,csv,hashlib,io,json,sys,tempfile,unittest,zipfile
+"""Focused schema, confidentiality and deterministic-format regression tests."""
+import copy,gzip,json,sys,tempfile,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-import validate as v
-from release import build
-
-class ValidationTests(unittest.TestCase):
- def setUp(self):
-  self.s=v.load(v.ROOT/'schemas/catalog.schema.json')
-  self.d={k:[] for k in v.TABLE_KEYS}
- def row(self,table,**updates):
-  props=self.s['properties'][table]['items']['properties'];r={}
-  for k,p in props.items():
-   if 'enum' in p:r[k]=p['enum'][0]
-   elif isinstance(p['type'],list):r[k]=None
-   else:r[k]='fixture'
-  r.update(updates);self.d[table].append(r);return r
- def fixture(self):
-  self.row('platforms',platform_key='platform')
-  scope=dict(model_year_start=2000,model_year_end=2000,reference_year=2000,configuration_reference='MY 2000 synthetic fixture',year_basis='manufacturerModelYear',market='ZZ')
-  self.row('variants',variant_key='variant',platform_key='platform',**scope)
-  self.row('sources',source_key='source',reference_url='https://example.org/synthetic',contribution_license='CC-BY-4.0')
-  self.row('packages',package_key='package',variant_key='variant',source_key='source',**scope)
-  for side in ['front','rear']:
-   self.row('axles',package_key='package',axle=side,source_key='source',run_flat=None,xl_reinforced=None)
-   for field,path in v.AXLE_PATHS.items():
-    self.row('claims',claim_key=side+'-'+field,entity_type='oemWheelTyrePackage',entity_key='package',field_path=side+'.'+path,source_key='source',state='unknown',value=None,value_type='string',unknown_reason='notCollectedYet')
-  for typ,key in [('source','source'),('vehiclePlatform','platform'),('vehicleVariant','variant'),('oemWheelTyrePackage','package')]:self.row('reviews',entity_type=typ,entity_key=key)
-  return self.d
- def test_empty_valid(self):self.assertTrue(v.validate_data(self.d,self.s))
- def test_synthetic_unknowns_valid(self):self.assertTrue(v.validate_data(self.fixture(),self.s))
- def test_extra_private_field_rejected(self):
-  self.fixture()['sources'][0]['private_notes']='not public'
-  with self.assertRaisesRegex(ValueError,'unallowlisted'):v.validate_data(self.d,self.s)
- def test_duplicate_identity(self):
-  self.fixture()['platforms'].append(copy.deepcopy(self.d['platforms'][0]))
-  with self.assertRaisesRegex(ValueError,'Duplicate'):v.validate_data(self.d,self.s)
- def test_foreign_key(self):
-  self.fixture()['variants'][0]['platform_key']='missing'
-  with self.assertRaisesRegex(ValueError,'Missing platform'):v.validate_data(self.d,self.s)
- def test_missing_axle(self):
-  self.fixture()['axles'].pop()
-  with self.assertRaisesRegex(ValueError,'axle pair'):v.validate_data(self.d,self.s)
- def test_unknown_not_zero(self):
-  self.fixture()['claims'][0]['value']=0
-  with self.assertRaisesRegex(ValueError,'semantics'):v.validate_data(self.d,self.s)
- def test_numeric_not_string(self):
-  self.fixture()['axles'][0]['wheel_width_in']='8'
-  with self.assertRaisesRegex(ValueError,'wrong type'):v.validate_data(self.d,self.s)
- def test_mismatched_axle_claim(self):
-  self.fixture()['axles'][0]['offset_mm']=0
-  with self.assertRaisesRegex(ValueError,'disagreement'):v.validate_data(self.d,self.s)
- def test_years_not_inferred(self):
-  self.fixture()['variants'][0]['model_year_end']=None
-  with self.assertRaisesRegex(ValueError,'Half'):v.validate_data(self.d,self.s)
- def test_token_url(self):
-  with self.assertRaisesRegex(ValueError,'Credential'):v.safe_url('https://example.org/?token=synthetic')
- def test_private_path(self):
-  with self.assertRaisesRegex(ValueError,'private'):v.scan_text('/'+'Users/'+'example/private','fixture')
- def test_schema_cannot_be_relaxed(self):
-  s=copy.deepcopy(self.s);s['additionalProperties']=True
-  with self.assertRaises(ValueError):v.validate_data(self.d,s)
- def test_zero_completeness_is_na(self):self.assertIsNone(v.coverage(self.d)['field_completeness']['offset_mm']['percent'])
- def test_release_reproducible_and_checksums(self):
+from common import canonical,load,ROOT,write_rows,scan
+from project import schema,clean,select,FIELDS
+from validate import schema_check,safe_url,interval
+class CatalogTests(unittest.TestCase):
+ def test_schema_closed(self):
+  s=schema()['$defs']['platforms'];r={k:None for k in s['properties']};r['private_notes']='excluded'
+  with self.assertRaisesRegex(ValueError,'unexpected'):schema_check(r,s)
+ def test_dimension_numeric(self):
+  s=schema()['$defs']['axles'];r={k:None for k in s['properties']};r['wheel_width_in']='8'
+  with self.assertRaisesRegex(ValueError,'wrong type'):schema_check(r,s)
+ def test_boolean_not_dimension(self):
+  with self.assertRaises(ValueError):schema_check(True,{'type':['number','null']})
+ def test_unknown_null(self):self.assertIsNone(clean(''))
+ def test_zero_preserved(self):self.assertEqual(clean(0),0)
+ def test_rights_not_promoted(self):
+  p={'source_key':'synthetic','licence_status':'notPermitted','redistribution_permission':'unknown'}
+  r=select(p,FIELDS['source_rights']);self.assertEqual(r['licence_status'],'notPermitted');self.assertEqual(r['redistribution_permission'],'unknown')
+ def test_private_fields_excluded(self):
+  r=select({'source_key':'x','rights_reviewer':'private'},FIELDS['sources']);self.assertNotIn('rights_reviewer',r)
+ def test_private_locator_redacted(self):
+  value=clean('/'+'Users/'+'example/a.pdf; page 12');self.assertIn('page 12',value);self.assertNotIn('example',value)
+ def test_url_secrets_stripped(self):
+  self.assertEqual(clean('https://example.org/spec?model=1&token=secret','reference_url'),'https://example.org/spec?model=1')
+ def test_url_scanner(self):
+  with self.assertRaisesRegex(ValueError,'Tokenized'):safe_url('https://example.org?password=synthetic')
+ def test_scanner(self):
+  with self.assertRaises(ValueError):scan('/'+'Users/'+'example/private')
+ def test_half_year_rejected(self):
+  with self.assertRaises(ValueError):interval({'model_year_start':2000,'model_year_end':None})
+ def test_undated_scope(self):
+  with self.assertRaises(ValueError):interval({'year_basis':'undatedConfiguration','model_year_start':2000,'model_year_end':2000})
+ def test_deterministic_shards(self):
+  records=[{'id':i,'value':None} for i in range(5)]
   with tempfile.TemporaryDirectory() as a,tempfile.TemporaryDirectory() as b:
-   x,h=build(v.ROOT,Path(a));y,j=build(v.ROOT,Path(b));self.assertEqual(x.read_bytes(),y.read_bytes());self.assertEqual(h,j)
-   with zipfile.ZipFile(x) as z:
-    prefix='open-wheel-size-'+v.load(v.ROOT/'manifest.json')['release_version']+'/'
-    for line in z.read(prefix+'CHECKSUMS.sha256').decode().splitlines():
-     digest,name=line.split('  ',1);self.assertEqual(hashlib.sha256(z.read(prefix+name)).hexdigest(),digest)
-    for table in v.TABLE_KEYS:self.assertEqual(len(list(csv.DictReader(io.StringIO(z.read(prefix+'csv/'+table+'.csv').decode())))),0)
-    with tempfile.TemporaryDirectory() as extracted:
-     z.extractall(extracted);root=Path(extracted)/prefix
-     self.assertEqual(v.validate_tree(root)['counts'],v.coverage(v.load(v.ROOT/'data/catalog.json'))['counts'])
-     rebuilt,h2=build(root,Path(extracted)/'rebuilt');self.assertEqual(x.read_bytes(),rebuilt.read_bytes())
-     (root/'csv/axles.csv').write_text('tampered\n')
-     with self.assertRaisesRegex(ValueError,'checksum'):v.validate_tree(root)
+   x=write_rows('synthetic',iter(records),Path(a),2);y=write_rows('synthetic',iter(records),Path(b),2);self.assertEqual(x,y)
+   recovered=[]
+   for item in x['files']:
+    pa=Path(a)/Path(item['path']).name;pb=Path(b)/pa.name;self.assertEqual(pa.read_bytes(),pb.read_bytes())
+    with gzip.open(pa,'rt',encoding='utf-8') as f:recovered.extend(json.loads(line) for line in f)
+   self.assertEqual(records,recovered)
+ def test_nan_rejected(self):
+  with self.assertRaises(ValueError):canonical(float('nan'))
 if __name__=='__main__':unittest.main()

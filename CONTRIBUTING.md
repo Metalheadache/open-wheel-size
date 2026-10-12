@@ -15,7 +15,7 @@ without posting private legal correspondence or personal details.
 Do not manually edit the canonical public projection as a competing master.
 Submit a correction proposal to the maintainer; accepted changes are reconciled
 with the canonical source and release eligibility before a projection is generated.
-Public acceptance is not downstream production approval.
+Public acceptance is not downstream production approval or legal clearance. Preserve unresolved rights labels; do not invent a permission grant.
 
 Run `python3 scripts/validate.py` and `python3 -m unittest discover -s tests -v`.
 The workflow needs no secrets and has read-only permissions. Pull requests must

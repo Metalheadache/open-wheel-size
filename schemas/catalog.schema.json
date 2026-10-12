@@ -1,609 +1,2726 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "additionalProperties": false,
-  "properties": {
+  "$defs": {
     "axles": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "actual_section_width_mm": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "axle": {
-            "enum": [
-              "front",
-              "rear"
-            ]
-          },
-          "evidence_grade": {
-            "type": "string"
-          },
-          "load_index": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "measuring_rim_width_in": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "offset_mm": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "package_key": {
-            "type": "string"
-          },
-          "run_flat": {
-            "enum": [
-              true,
-              false,
-              null
-            ]
-          },
-          "source_key": {
-            "type": "string"
-          },
-          "source_locator": {
-            "type": "string"
-          },
-          "spacer_mm": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "speed_rating": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "tyre_aspect_ratio_percent": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "tyre_brand": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "tyre_model": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "tyre_rim_diameter_in": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "tyre_section_width_mm": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "wheel_diameter_in": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "wheel_part_number": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "wheel_width_in": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "xl_reinforced": {
-            "enum": [
-              true,
-              false,
-              null
-            ]
-          }
+      "additionalProperties": false,
+      "properties": {
+        "actual_section_width_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
         },
-        "required": [
-          "package_key",
-          "source_key",
-          "source_locator",
-          "evidence_grade",
-          "axle",
-          "wheel_diameter_in",
-          "wheel_width_in",
-          "offset_mm",
-          "tyre_section_width_mm",
-          "tyre_aspect_ratio_percent",
-          "tyre_rim_diameter_in",
-          "actual_section_width_mm",
-          "measuring_rim_width_in",
-          "spacer_mm",
-          "wheel_part_number",
-          "load_index",
-          "speed_rating",
-          "tyre_brand",
-          "tyre_model",
-          "run_flat",
-          "xl_reinforced"
-        ],
-        "type": "object"
+        "axle": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "evidence_grade": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "load_index": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "measuring_rim_width_in": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "offset_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "package_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "run_flat": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_locator": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "spacer_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "speed_rating": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tyre_aspect_ratio_percent": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "tyre_brand": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "tyre_model": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "tyre_rim_diameter_in": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "tyre_section_width_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "wheel_diameter_in": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "wheel_part_number": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "wheel_width_in": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "xl_reinforced": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
       },
-      "type": "array"
+      "required": [
+        "package_key",
+        "axle",
+        "actual_section_width_mm",
+        "evidence_grade",
+        "load_index",
+        "measuring_rim_width_in",
+        "offset_mm",
+        "run_flat",
+        "source_key",
+        "source_locator",
+        "spacer_mm",
+        "speed_rating",
+        "tyre_aspect_ratio_percent",
+        "tyre_brand",
+        "tyre_model",
+        "tyre_rim_diameter_in",
+        "tyre_section_width_mm",
+        "wheel_diameter_in",
+        "wheel_part_number",
+        "wheel_width_in",
+        "xl_reinforced",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
     },
     "claims": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "canonical_unit": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "claim_key": {
-            "type": "string"
-          },
-          "entity_key": {
-            "type": "string"
-          },
-          "entity_type": {
-            "type": "string"
-          },
-          "evidence_grade": {
-            "type": "string"
-          },
-          "field_path": {
-            "type": "string"
-          },
-          "source_key": {
-            "type": "string"
-          },
-          "source_locator": {
-            "type": "string"
-          },
-          "state": {
-            "enum": [
-              "known",
-              "unknown",
-              "notApplicable"
-            ]
-          },
-          "unknown_reason": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "value": {
-            "type": [
-              "string",
-              "number",
-              "boolean",
-              "null"
-            ]
-          },
-          "value_type": {
-            "enum": [
-              "string",
-              "number",
-              "boolean"
-            ]
-          }
+      "additionalProperties": false,
+      "properties": {
+        "axle": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
         },
-        "required": [
-          "claim_key",
-          "entity_type",
-          "entity_key",
-          "field_path",
-          "source_key",
-          "source_locator",
-          "evidence_grade",
-          "state",
-          "value",
-          "value_type",
-          "unknown_reason",
-          "canonical_unit"
-        ],
-        "type": "object"
+        "brake_package": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "canonical_unit": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "claim_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "drivetrain": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "entity_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "entity_type": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "evidence_grade": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "field_path": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "market": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "model_year_end": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "model_year_start": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "original_unit": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "package_code": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "region": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_locator": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "suspension_package": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "trim": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "unknown_reason": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "value_type": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
       },
-      "type": "array"
+      "required": [
+        "claim_key",
+        "axle",
+        "brake_package",
+        "canonical_unit",
+        "drivetrain",
+        "entity_key",
+        "entity_type",
+        "evidence_grade",
+        "field_path",
+        "market",
+        "model_year_end",
+        "model_year_start",
+        "original_unit",
+        "package_code",
+        "region",
+        "source_key",
+        "source_locator",
+        "state",
+        "suspension_package",
+        "trim",
+        "unknown_reason",
+        "value",
+        "value_type",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
+    },
+    "corrections": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_at": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "application_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "axle": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "correction_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "entity_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "evidence_ref": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "field": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "impacted_fact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "old_value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "proposed_value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_locator": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_sha256": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "correction_id",
+        "axle",
+        "entity_key",
+        "field",
+        "old_value",
+        "value",
+        "proposed_value",
+        "impacted_fact_ids",
+        "application_status",
+        "accepted_at",
+        "source_locator",
+        "source_sha256",
+        "evidence_ref",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
+    },
+    "effective_facts": {
+      "additionalProperties": false,
+      "properties": {
+        "applicability": {
+          "additionalProperties": false,
+          "properties": {
+            "actual_manufacturer_model_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "body": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "body_configuration": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "body_style": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "catalogue_part_linkage_only": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "configuration_reference": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "drive_type": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "factory_finish_not_assigned": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "factory_set_scope": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "manufacturer_model_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "market": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "model_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "model_year_end": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "model_year_start": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "no_part_code_or_finish_assignment": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "option_package_code": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "own_axle_clause": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "package_key": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "package_type": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "part_linkage_only": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "production_month_not_assigned": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "reference_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "reference_year_preserved": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "region": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_market": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_model": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_production": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_type_code": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "suspension_configuration": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "suspension_requirement": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "suspension_scope": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "transmission_name": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "transmission_type": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "trim": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "variant_key": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "wheel_style_code": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "year_basis": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "axle": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "axle_stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "batch_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "canonical_unit": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "capture_sha256": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "claim_stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entity_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "evidence_group": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "fact_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "field": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "gap_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "qualifications": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "review_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_locator": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "supporting_evidence": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "capture_sha256": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "locator": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "role": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "source_id": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "source_key": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "source_locator": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "table": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "fact_id",
+        "axle",
+        "entity_key",
+        "field",
+        "table",
+        "value",
+        "canonical_unit",
+        "review_status",
+        "source_locator",
+        "capture_sha256",
+        "source_id",
+        "batch_id",
+        "gap_id",
+        "evidence_group",
+        "record_id",
+        "stable_id",
+        "applicability",
+        "supporting_evidence",
+        "qualifications",
+        "source_key",
+        "claim_stable_id",
+        "axle_stable_id"
+      ],
+      "type": "object"
+    },
+    "known_issues": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_keys": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "finding": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "issue_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "limitation": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_reference": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "issue_id",
+        "subject",
+        "status",
+        "finding",
+        "limitation",
+        "source_reference",
+        "affected_keys",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
     },
     "packages": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "configuration_reference": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "market": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "model_year_end": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "model_year_start": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "option_package_code": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "package_key": {
-            "type": "string"
-          },
-          "package_name": {
-            "type": "string"
-          },
-          "package_type": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "reference_year": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "region": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "source_key": {
-            "type": "string"
-          },
-          "source_locator": {
-            "type": "string"
-          },
-          "variant_key": {
-            "type": "string"
-          },
-          "wheel_style_code": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "year_basis": {
-            "enum": [
-              "manufacturerModelYear",
-              "datedConfiguration",
-              "undatedConfiguration"
-            ]
-          }
+      "additionalProperties": false,
+      "properties": {
+        "brake_package_applicability": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
         },
-        "required": [
-          "package_key",
-          "variant_key",
-          "package_name",
-          "source_key",
-          "source_locator",
-          "model_year_start",
-          "model_year_end",
-          "reference_year",
-          "market",
-          "region",
-          "configuration_reference",
-          "year_basis",
-          "package_type",
-          "option_package_code",
-          "wheel_style_code"
-        ],
-        "type": "object"
+        "brake_package_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "configuration_reference": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "market": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "model_year_end": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "model_year_start": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "option_package_code": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "package_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "package_name": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "package_type": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reference_year": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "region": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_locator": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "suspension_package_applicability": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "suspension_package_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "transmission_applicability": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "variant_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "wheel_style_code": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "year_basis": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
       },
-      "type": "array"
+      "required": [
+        "package_key",
+        "variant_key",
+        "package_name",
+        "package_type",
+        "option_package_code",
+        "wheel_style_code",
+        "brake_package_applicability",
+        "brake_package_key",
+        "configuration_reference",
+        "market",
+        "model_year_end",
+        "model_year_start",
+        "reference_year",
+        "region",
+        "source_key",
+        "source_locator",
+        "suspension_package_applicability",
+        "suspension_package_key",
+        "transmission_applicability",
+        "year_basis",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
     },
     "platforms": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "chassis_generation": {
-            "type": "string"
-          },
-          "manufacturer": {
-            "type": "string"
-          },
-          "model_family": {
-            "type": "string"
-          },
-          "platform_key": {
-            "type": "string"
-          }
+      "additionalProperties": false,
+      "properties": {
+        "aliases_en": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
         },
-        "required": [
-          "platform_key",
-          "manufacturer",
-          "model_family",
-          "chassis_generation"
-        ],
-        "type": "object"
+        "aliases_zh": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "chassis_generation": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "manufacturer": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "model_family": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "platform_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
-      "type": "array"
+      "required": [
+        "platform_key",
+        "manufacturer",
+        "model_family",
+        "chassis_generation",
+        "aliases_en",
+        "aliases_zh",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
+    },
+    "provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "applicability": {
+          "additionalProperties": false,
+          "properties": {
+            "actual_manufacturer_model_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "body": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "body_configuration": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "body_style": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "catalogue_part_linkage_only": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "configuration_reference": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "drive_type": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "factory_finish_not_assigned": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "factory_set_scope": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "manufacturer_model_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "market": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "model_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "model_year_end": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "model_year_start": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "no_part_code_or_finish_assignment": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "option_package_code": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "own_axle_clause": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "package_key": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "package_type": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "part_linkage_only": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "production_month_not_assigned": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "reference_year": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "reference_year_preserved": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "region": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_market": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_model": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_production": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "selected_catalog_type_code": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "suspension_configuration": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "suspension_requirement": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "suspension_scope": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "transmission_name": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "transmission_type": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "trim": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "variant_key": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "wheel_style_code": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "year_basis": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "applicability_state": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "axle": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "canonical_record_sha256": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "capture_sha256": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "cell_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "dependency_claim_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "dependency_fact_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "dependency_fact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "entity_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "event_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "fact_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "field": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "field_dictionary_version": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "hardware_cell_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "inventory_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "next_state": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "original_field_path": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "previous_state": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "provenance_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "qualifications": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "review_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_locator": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "supporting_evidence": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "capture_sha256": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "locator": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "role": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "source_id": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "source_key": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "source_locator": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "table": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "unallocated_existing_claim_id": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "variant_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "entity_key",
+        "variant_key",
+        "axle",
+        "field",
+        "table",
+        "value",
+        "unit",
+        "status",
+        "review_status",
+        "applicability_state",
+        "fact_id",
+        "event_id",
+        "cell_id",
+        "hardware_cell_id",
+        "inventory_id",
+        "source_id",
+        "source_key",
+        "source_locator",
+        "capture_sha256",
+        "canonical_record_sha256",
+        "original_field_path",
+        "field_dictionary_version",
+        "previous_state",
+        "next_state",
+        "dependency_fact_id",
+        "dependency_fact_ids",
+        "dependency_claim_id",
+        "unallocated_existing_claim_id",
+        "record_id",
+        "stable_id",
+        "applicability",
+        "supporting_evidence",
+        "qualifications",
+        "provenance_key"
+      ],
+      "type": "object"
     },
     "reviews": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "application_promotion_status": {
-            "enum": [
-              "notAssessed"
-            ]
-          },
-          "entity_key": {
-            "type": "string"
-          },
-          "entity_type": {
-            "type": "string"
-          },
-          "garage_support": {
-            "enum": [
-              "notAssessed"
-            ]
-          },
-          "public_release_basis": {
-            "type": "string"
-          },
-          "public_release_status": {
-            "enum": [
-              "eligible"
-            ]
-          },
-          "technical_review_status": {
-            "enum": [
-              "unreviewed",
-              "inReview",
-              "accepted",
-              "rejected",
-              "blocked"
-            ]
-          }
+      "additionalProperties": false,
+      "properties": {
+        "blocking_issue_count": {
+          "type": [
+            "number",
+            "null"
+          ]
         },
-        "required": [
-          "entity_type",
-          "entity_key",
-          "technical_review_status",
-          "public_release_status",
-          "public_release_basis",
-          "application_promotion_status",
-          "garage_support"
-        ],
-        "type": "object"
+        "entity_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "entity_type": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "publication_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "research_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "rights_review_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "technical_review_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
       },
-      "type": "array"
+      "required": [
+        "entity_type",
+        "entity_key",
+        "blocking_issue_count",
+        "publication_status",
+        "research_status",
+        "rights_review_status",
+        "technical_review_status",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
+    },
+    "source_rights": {
+      "additionalProperties": false,
+      "properties": {
+        "attribution_requirement": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "commercial_use_permission": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "licence_status": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "permitted_use_description": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "redistribution_permission": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "rights_checked_at": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "rights_reference_url": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "rights_scope": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "rights_source_locator": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "source_key",
+        "licence_status",
+        "commercial_use_permission",
+        "redistribution_permission",
+        "rights_scope",
+        "rights_reference_url",
+        "rights_source_locator",
+        "rights_checked_at",
+        "attribution_requirement",
+        "permitted_use_description",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
     },
     "sources": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "attribution": {
-            "type": "string"
-          },
-          "content_hash": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "contribution_license": {
-            "type": "string"
-          },
-          "public_release_basis": {
-            "type": "string"
-          },
-          "publication_date": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "reference_url": {
-            "type": "string"
-          },
-          "retrieval_date": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "source_key": {
-            "type": "string"
-          },
-          "source_version": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          }
+      "additionalProperties": false,
+      "properties": {
+        "attribution_requirement": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
         },
-        "required": [
-          "source_key",
-          "title",
-          "publisher",
-          "reference_url",
-          "source_version",
-          "attribution",
-          "public_release_basis",
-          "contribution_license",
-          "publication_date",
-          "retrieval_date",
-          "content_hash"
-        ],
-        "type": "object"
+        "content_hash": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "issuing_organization": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "jurisdiction": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "language": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "market": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "publication_date": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "publisher": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reference_url": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "retrieval_date": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_type": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_version": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
       },
-      "type": "array"
+      "required": [
+        "source_key",
+        "title",
+        "publisher",
+        "issuing_organization",
+        "source_type",
+        "source_version",
+        "publication_date",
+        "retrieval_date",
+        "reference_url",
+        "language",
+        "market",
+        "jurisdiction",
+        "content_hash",
+        "attribution_requirement",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
     },
     "variants": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "aliases_en": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "aliases_zh": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "body_style": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "configuration_reference": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "drive_type": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "engine_code": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "market": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "model_year_end": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "model_year_start": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "platform_key": {
-            "type": "string"
-          },
-          "reference_year": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "region": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "transmission_name": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "transmission_type": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "trim": {
-            "type": "string"
-          },
-          "variant_key": {
-            "type": "string"
-          },
-          "year_basis": {
-            "enum": [
-              "manufacturerModelYear",
-              "datedConfiguration",
-              "undatedConfiguration"
-            ]
-          }
+      "additionalProperties": false,
+      "properties": {
+        "aliases_en": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
         },
-        "required": [
-          "variant_key",
-          "platform_key",
-          "trim",
-          "model_year_start",
-          "model_year_end",
-          "reference_year",
-          "market",
-          "region",
-          "configuration_reference",
-          "year_basis",
-          "body_style",
-          "drive_type",
-          "transmission_type",
-          "transmission_name",
-          "engine_code",
-          "aliases_en",
-          "aliases_zh"
-        ],
-        "type": "object"
+        "aliases_zh": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "body_style": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "brake_package_display_name": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "brake_package_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "configuration_reference": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "drive_type": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "engine_code": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "engine_description": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "engine_family": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "factory_brake_package": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "factory_suspension_package": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "market": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "model_year_end": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "model_year_start": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "package_code": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "platform_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "production_end": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "production_start": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reference_year": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "region": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "stable_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "suspension_package_display_name": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "suspension_package_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "transmission_name": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "transmission_type": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "trim": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "variant_key": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "year_basis": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
       },
-      "type": "array"
+      "required": [
+        "variant_key",
+        "platform_key",
+        "aliases_en",
+        "aliases_zh",
+        "body_style",
+        "brake_package_display_name",
+        "brake_package_key",
+        "configuration_reference",
+        "drive_type",
+        "engine_code",
+        "engine_description",
+        "engine_family",
+        "factory_brake_package",
+        "factory_suspension_package",
+        "market",
+        "model_year_end",
+        "model_year_start",
+        "package_code",
+        "production_end",
+        "production_start",
+        "reference_year",
+        "region",
+        "suspension_package_display_name",
+        "suspension_package_key",
+        "transmission_name",
+        "transmission_type",
+        "trim",
+        "year_basis",
+        "record_id",
+        "stable_id"
+      ],
+      "type": "object"
     }
   },
-  "required": [
-    "platforms",
-    "variants",
-    "packages",
-    "axles",
-    "sources",
-    "claims",
-    "reviews"
-  ],
-  "title": "open-wheel-size portable projection 1.0",
-  "type": "object"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "open-wheel-size portable row schemas 2.0"
 }

@@ -1,10 +1,11 @@
 cff-version: 1.2.0
-message: "Cite the exact tooling release; no vehicle dataset is included yet."
-title: "open-wheel-size: catalog tooling and schema"
-type: software
-version: 0.1.1
+message: "Cite the exact dataset version and retain source-level attribution and rights labels."
+title: "open-wheel-size: source-attributed vehicle wheel and tyre reference catalog"
+type: dataset
+version: 1.0.0
 date-released: 2026-10-12
 authors:
   - name: open-wheel-size contributors
 repository-code: "https://github.com/Metalheadache/open-wheel-size"
-license: MIT
+license: CC-BY-4.0
+abstract: "The licence covers eligible owner-controlled contributions only. Third-party rights labels remain unresolved; no legal clearance is asserted."

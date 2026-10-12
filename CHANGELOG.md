@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 — 2026-10-12
+
+Publish the complete sanitized structured catalog under explicit owner authorization.
+Preserve all rights/review states, unknowns and conflicts; no legal clearance or
+production approval asserted. Portable schema 2.0 adds full claims, rights,
+effective facts, provenance, corrections and known issues. Source attachments and
+private material remain excluded. Prior tooling-only releases remain unchanged.
+
 ## 0.1.1 — 2026-10-12
 
 Fix downloaded archive validation: verify the exact generated CSV/checksum allowlist,

@@ -1,10 +1,10 @@
-Fix archive validation and deterministic rebuilds from extracted releases.
-Supersedes the v0.1.0 archive packaging issue; old tags/assets are preserved.
+Complete sanitized structured research catalog v1.0.0: 621 platforms, 6,349
+variants, 11,771 OEM packages, 23,542 axle records, 2,390 sources and 732,391 claims.
+Includes historical reviews, effective facts, sanitized provenance, corrections and
+known issues, plus offline validation and reproducible JSONL.gz/CSV.gz packaging.
 
-Initial standalone tooling, offline validator, closed schema and reproducible
-JSON/CSV packaging. **DATA RELEASE BLOCKED. Zero vehicle records are included.**
-The complete private research v1 has not been released: a separate scoped public
-redistribution assessment for the structured facts is missing. Original source
-flags remain intact; source-document restrictions are not treated as a conclusion
-about independently recorded facts. MIT tooling/docs and scoped CC BY 4.0 data
-licence text are included. This is not a v1.0.0 catalog-data release.
+The owner explicitly superseded the prior rights gate for structured facts.
+Original unresolved rights labels remain unchanged. **No legal clearance or
+production approval is asserted.** Source documents, credentials, personal data,
+private notes and internal paths are excluded. MIT code/docs; CC BY 4.0 applies
+only to contributions the owner has rights to license, not third-party material.

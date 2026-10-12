@@ -1,45 +1,42 @@
-# Methodology and eligibility
+# Methodology
 
-The completed research v1 workbook is the canonical entity/claim authority.
-Its effective facts and correction history are cross-checked enrichment, not a
-second canonical dataset. The private transfer ledger preserves original rows
-and provides stable identity and reconciliation; planning history is not coverage.
-The public projection must be derived from that version and explicit field-level
-release decisions. Source material and unallowlisted fields never pass through.
+The completed research v1 workbook is the canonical entity/claim authority. Its
+reconciled private SQLite ledger preserves rows and exact keys. This project reuses
+that existing ledger to generate a strict field-allowlisted projection through
+`scripts/project.py`. Effective facts, typed hardware claims, positive N/A and eight
+accepted metadata corrections are preserved. No wheel specification is researched
+or invented by the publication process.
 
-Four independent decisions are required:
+All canonical platforms, variants, packages, axles, sources, claims and review rows
+are included, together with effective facts, sanitized provenance and corrections.
+Source rights are separated into a table keyed to the original source. The complete
+private master is retained unchanged. Workbook layout/header/blank rows, planning
+backlog and private review documents are not public catalog facts.
 
-| Decision | Current public package |
-|---|---|
-| Public redistribution of structured facts | No documented eligible cohort; blocked |
-| Technical review | No public records; private master mostly unreviewed |
-| Downstream production approval | Not assessed; never implied by public availability |
-| Apply-to-Garage support | Not assessed; no integration supplied |
+Sanitization excludes unallowlisted fields, including arbitrary notes, raw copied
+values/passages, reviewer identities, private receipt/capture paths and attachments.
+Blank cells become null; Excel date wrappers become their recorded ISO strings.
+Numeric dimensions remain numeric. Internal path fragments in otherwise useful
+locators are replaced with explicit omission markers; public citation URLs and
+locators remain, with credential-bearing URL components removed. Source-specific
+attribution and original rights flags are preserved. Technical source qualifications
+are carried by known issues, evidence labels and derived qualification tags; private
+review prose is not reproduced.
 
-The saved source flags concern document reproduction: 2,355 unknown and 35
-notPermitted. There is no saved separate release assessment clearing factual
-cohorts. These flags were not silently promoted, and restrictions on documents
-were not treated as proof that facts themselves are prohibited. The owner granted
-licensing of owner-controlled contributions; third-party obligations remain unresolved.
+On 2026-10-12 the owner explicitly superseded the rights-clearance publication gate
+for structured facts. No licence/permission label was upgraded. This release does
+not claim legal clearance. Publication is separate from technical acceptance,
+production promotion and Apply-to-Garage support; the latter two are not assessed.
+Most historical reviews remain unreviewed. An accepted research overlay is not a
+formal production approval. Future consumers must perform their own scoped review.
 
-To reopen: document the actual facts/compilation rights basis for each source and
-field cohort, including jurisdiction/scope, compatible notices, and exact stable
-IDs. Resolve every included claim's source dependencies. A licence or statutory
-basis must cover the proposed release, not merely research access. A recorded
-source-document restriction may coexist with a supported fact release.
+Claims preserve historical states. A previously unknown claim may coexist with a
+later known claim for the same field; current wheel geometry is materialized in
+`axles`. Positive N/A is distinct from unknown or zero. Conflicting evidence is
+not silently resolved. Consult `known_issues` and source locators before use.
+Neither shared styling nor a neighboring model/year/market authorizes propagation.
 
-Include eligible unreviewed/conflicting records with their limitations intact.
-Keep explicit unknowns and positive N/A; never infer year, market, trim or opposite
-axle values. Unsupported contested values do not become verified values. Record
-scope exclusions privately by exact identity and hash; publish honest aggregate
-counts. Reviewers' identities and private correspondence remain private.
-
-The public schema is a strict field allowlist. Arbitrary notes, raw excerpts,
-reviewer details, paths and attachments are excluded. The current projection has
-zero rows because there are zero documented eligible cohorts. Future nonempty
-projections require a new, independently inspected release decision; this tool
-release does not provide a bypass or silently grant clearance.
-
-Validation checks structure, keys, links, axle pairing, numeric units, known/unknown
-semantics, source reconciliation, generated coverage and deterministic release
-hashes. It is not an engineering or legal approval. Never default null to zero.
+Offline validation checks the closed schema, deterministic JSON, all shard hashes,
+counts, keys, relationships, source links, axle pairing, dimensions, claim types,
+current axle/claim reconciliation, effective-fact links, known/unknown semantics,
+and coverage freshness. It records limitations without rewriting accepted facts.
