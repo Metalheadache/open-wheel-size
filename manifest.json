@@ -28,7 +28,7 @@
   "project": "open-wheel-size",
   "public_schema_version": "2.0",
   "release_kind": "complete-sanitized-structured-dataset",
-  "release_version": "1.0.0",
+  "release_version": "1.0.1",
   "released_counts": {
     "axles": 23542,
     "claims": 732391,

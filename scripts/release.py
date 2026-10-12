@@ -1,4 +1,4 @@
-"""Build a portable archive from tagged public inputs, with lossless CSV tables."""
+"""Build a portable archive from tagged public inputs, without recompressing tagged inputs."""
 import argparse,csv,gzip,hashlib,io,json,tempfile,zipfile
 from pathlib import Path
 from common import ROOT,KEYS,load,digest,rows,canonical
@@ -13,15 +13,6 @@ def build(root,output):
  output.mkdir(parents=True,exist_ok=True);version=m['release_version'];prefix='open-wheel-size-'+version+'/'
  with tempfile.TemporaryDirectory() as directory:
   temp=Path(directory);members={n:root/n for n in load(root/'PUBLIC_FILES.json')}
-  schema=load(root/'schemas/catalog.schema.json')['$defs']
-  for table in KEYS:
-   p=temp/(table+'.csv.gz');fields=sorted(schema[table]['properties'])
-   with p.open('wb') as raw:
-    with gzip.GzipFile(filename='',mode='wb',fileobj=raw,mtime=0,compresslevel=9) as gz:
-     with io.TextIOWrapper(gz,encoding='utf-8',newline='') as text:
-      writer=csv.DictWriter(text,fieldnames=fields,lineterminator='\n');writer.writeheader()
-      for row in rows(table,root):writer.writerow({k:canonical(row[k]) for k in fields})
-   members['csv/'+p.name]=p
   checks=temp/'CHECKSUMS.sha256';checks.write_text(''.join(digest(p)+'  '+n+'\n' for n,p in sorted(members.items())),encoding='utf-8');members[checks.name]=checks
   archive=output/('open-wheel-size-'+version+'.zip')
   with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_STORED,allowZip64=True) as z:

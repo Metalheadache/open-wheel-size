@@ -13,7 +13,7 @@ entity ID; their original record UUID remains the identity. Rights rows share th
 source identity; known-issue IDs are the original issue labels.
 
 Public payload hashes differ from private hashes because of allowlisting/date/null
-normalization. Public schema 2.0 and dataset version 1.0.0 are separate from the
+normalization. Public schema 2.0 and dataset version 1.0.1 are separate from the
 original intake schema 1.2. The dataset contains all structured canonical factual
 records, not all private attachments, review notes or planning/layout history.
 Sanitized provenance may omit private fields while retaining identity and states.

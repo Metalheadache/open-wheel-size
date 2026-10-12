@@ -124,12 +124,12 @@ def validate_files(root=ROOT):
   require(not p.is_symlink(),'Symlink in public tree')
   if p.is_file():actual.append(rel.as_posix())
  generated={'CHECKSUMS.sha256'}|{'csv/'+t+'.csv.gz' for t in KEYS}
- extras=set(actual)-set(allowed);require(set(actual)==set(allowed)|(generated if extras else set()),'Public file allowlist mismatch')
+ extras=set(actual)-set(allowed);require(extras in (set(),{'CHECKSUMS.sha256'},generated) and set(allowed)<=set(actual),'Public file allowlist mismatch')
  if extras:
   checks={}
   for line in (root/'CHECKSUMS.sha256').read_text().splitlines():
    h,n=line.split('  ',1);require(n not in checks,'Duplicate checksum');checks[n]=h
-  require(set(checks)==set(allowed)| (generated-{'CHECKSUMS.sha256'}),'Checksum allowlist mismatch')
+  require(set(checks)==set(allowed)| (extras-{'CHECKSUMS.sha256'}),'Checksum allowlist mismatch')
   for n,h in checks.items():require(digest(root/n)==h,'Archive checksum mismatch')
  for name in allowed:
   require(not Path(name).is_absolute() and '..' not in Path(name).parts,'Unsafe file path')

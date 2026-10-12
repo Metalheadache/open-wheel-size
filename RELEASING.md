@@ -1,6 +1,6 @@
 # Releasing
 
-The public dataset version is 1.0.0 and the portable schema is 2.0. They are separate
+The public dataset version is 1.0.1 and the portable schema is 2.0. They are separate
 from the source intake schema version. Never overwrite tags or existing assets.
 
 Privately reconcile the canonical ledger, preserve source input hashes and update
@@ -42,3 +42,8 @@ validator/tests and rebuild the archive; compare SHA256SUMS and internal file ha
 Inspect GitHub source ZIP/tar archives, public history, CI logs and asset lists.
 Retain unresolved rights labels and explicitly avoid claims of legal clearance.
 The repository workflow uses no publishing credentials or privileged PR execution.
+
+Version 1.0.1 stores tagged JSONL.gz inputs directly in a ZIP with fixed headers.
+It does not regenerate compressed convenience tables: gzip compression can vary
+with the runtime library. Version 1.0.0 CSV assets remain historical convenience
+exports; their decoded values match all JSON records. Do not replace those assets.

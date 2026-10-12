@@ -1,9 +1,9 @@
 # Data dictionary
 
-Dataset 1.0.0; public row schema 2.0; source intake schema 1.2.
+Dataset 1.0.1; public row schema 2.0; source intake schema 1.2.
 The schema has closed field allowlists. UTF-8 JSON Lines are gzip compressed with
 zero timestamps. `data/index.json` pins compressed and uncompressed SHA-256 hashes.
-CSV cells are JSON-encoded, including null, arrays and objects; parse with json.loads.
+The historical 1.0.0 convenience CSV cells are JSON-encoded, including null, arrays and objects; parse with json.loads.
 
 `record_id` maps the exact original master row; `stable_id` is the original proposed
 entity UUID where available. Keys retain their original strings. Blank scalar cells

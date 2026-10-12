@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Cite the exact dataset version and retain source-level attribution and rights labels."
 title: "open-wheel-size: source-attributed vehicle wheel and tyre reference catalog"
 type: dataset
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-10-12
 authors:
   - name: open-wheel-size contributors

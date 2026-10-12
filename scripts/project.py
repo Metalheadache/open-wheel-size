@@ -44,7 +44,7 @@ def schema():
  return {'$schema':'https://json-schema.org/draft/2020-12/schema','title':'open-wheel-size portable row schemas 2.0','$defs':tables}
 def text_clean(s):
  # Remove internal locators, not publisher names, public citations or technical dimensions.
- s=re.sub(r'(?:/'+'Users/|/'+'home/)[^\s;,\]\)\"\x27]+','[private path omitted]',s)
+ s=re.sub(r'(?:/'+r'Users/|/'+r'home/)[^\s;,\]\)\"\x27]+','[private path omitted]',s)
  s=re.sub(r'(?<!https://)(?:research|outputs|integration/private)/[^\s;,\]\)\"\x27]+','[private reference omitted]',s)
  s=re.sub(r'(?i)wheel'+'osophy','upstream catalog',s)
  return s

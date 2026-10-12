@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1 — 2026-10-12
+
+Packaging-only patch: archive the tagged JSONL.gz inputs without runtime CSV
+recompression. Same complete dataset, counts and source hashes as 1.0.0.
+The original 1.0.0 CSV convenience asset remains available and unchanged.
+
+
 ## 1.0.0 — 2026-10-12
 
 Publish the complete sanitized structured catalog under explicit owner authorization.

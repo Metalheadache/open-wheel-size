@@ -6,7 +6,7 @@ Independently maintained as an alternative in the wheel-size reference category;
 not an official Wheel-Size.com product, mirror, API-compatible clone or
 manufacturer-endorsed database.
 
-**v1.0.0 publishes the complete sanitized structured research catalog:**
+**v1.0.1 publishes the complete sanitized structured research catalog:**
 621 platform/generation keys, 6,349 market/year/trim variants, 11,771 OEM packages,
 23,542 front/rear axle records, 2,390 sources and 732,391 claims. It also preserves
 all 21,087 historical review records, 1,278 effective enrichment facts, 19,533
@@ -36,8 +36,10 @@ python3 scripts/release.py --output dist
 ```
 
 Primary files are deterministic UTF-8 JSON Lines compressed with gzip, indexed by
-`data/index.json`. Each row is one JSON object. The release additionally contains
-lossless CSV.gz tables: parse each CSV cell as JSON to preserve nulls and types.
+`data/index.json`. Each row is one JSON object. The primary release archive stores the tagged JSONL.gz files without recompression,
+so archive bytes do not depend on the runtime compression library. The v1.0.0
+archive also provides lossless CSV.gz convenience tables; parse each CSV cell as
+JSON to preserve nulls and types. Its CSV compression can vary across environments.
 The complete master remains private; this is its versioned, allowlisted projection,
 not a raw database dump or a second manually edited canonical dataset.
 
